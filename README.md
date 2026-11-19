@@ -26,9 +26,13 @@ paper.
 
 ## Quick start
 
+```bash
+git clone https://github.com/gianluca-sottile/fcst.git
+cd fcst/examples
+```
+
 ```r
-# from the folder examples/
-source("quick_example.R")
+source("quick_example.R")   # in R, from the folder examples/
 ```
 
 The example simulates 300 events with three curve types, one of which is

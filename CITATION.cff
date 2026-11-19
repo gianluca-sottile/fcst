@@ -12,6 +12,8 @@ authors:
     given-names: Giada
     affiliation: "University of Palermo"
 license: MIT
+repository-code: "https://github.com/gianluca-sottile/fcst"
+url: "https://github.com/gianluca-sottile/fcst"
 version: "1.0"
 preferred-citation:
   type: article
