@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "FCST: testing the spatial concentration of estimated shape types in functional marked point patterns"
+authors:
+  - family-names: Sottile
+    given-names: Gianluca
+    affiliation: "University of Palermo"
+  - family-names: D'Antoni
+    given-names: Marco
+    affiliation: "University of Palermo"
+  - family-names: Adelfio
+    given-names: Giada
+    affiliation: "University of Palermo"
+license: MIT
+version: "1.0"
+preferred-citation:
+  type: article
+  title: "Testing the spatial concentration of estimated shape types in functional marked point patterns"
+  authors:
+    - family-names: Sottile
+      given-names: Gianluca
+    - family-names: D'Antoni
+      given-names: Marco
+    - family-names: Adelfio
+      given-names: Giada
+  year: 2026
+  notes: "Submitted"

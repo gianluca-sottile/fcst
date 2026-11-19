@@ -1,0 +1,25 @@
+"analysis","clustering","p_clustering","p_joint"
+"unrestricted","fpca_kmeans_K2",5e-04,5e-04
+"unrestricted","fpca_kmeans_K3",5e-04,5e-04
+"unrestricted","fpca_kmeans_K4",5e-04,5e-04
+"unrestricted","fpca_kmeans_K5",5e-04,5e-04
+"unrestricted","fpca_mclust_K2",5e-04,5e-04
+"unrestricted","fpca_mclust_K3",5e-04,5e-04
+"unrestricted","fpca_mclust_K4",5e-04,5e-04
+"unrestricted","fpca_mclust_K5",5e-04,5e-04
+"distance x magnitude","fpca_kmeans_K2",5e-04,5e-04
+"distance x magnitude","fpca_kmeans_K3",5e-04,5e-04
+"distance x magnitude","fpca_kmeans_K4",5e-04,5e-04
+"distance x magnitude","fpca_kmeans_K5",5e-04,5e-04
+"distance x magnitude","fpca_mclust_K2",5e-04,5e-04
+"distance x magnitude","fpca_mclust_K3",5e-04,5e-04
+"distance x magnitude","fpca_mclust_K4",5e-04,5e-04
+"distance x magnitude","fpca_mclust_K5",5e-04,5e-04
+"station","fpca_kmeans_K2",5e-04,5e-04
+"station","fpca_kmeans_K3",5e-04,5e-04
+"station","fpca_kmeans_K4",5e-04,5e-04
+"station","fpca_kmeans_K5",5e-04,5e-04
+"station","fpca_mclust_K2",5e-04,5e-04
+"station","fpca_mclust_K3",5e-04,5e-04
+"station","fpca_mclust_K4",5e-04,5e-04
+"station","fpca_mclust_K5",5e-04,5e-04

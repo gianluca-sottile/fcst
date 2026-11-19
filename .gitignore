@@ -1,0 +1,12 @@
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+# macOS
+.DS_Store
+# large or third-party data (STEAD waveforms and their extracts)
+R/results/stead_extract_*.rds
+R/results/app_stead_data.rds
+data/
+*.hdf5

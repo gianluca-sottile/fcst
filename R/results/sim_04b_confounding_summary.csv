@@ -1,0 +1,6 @@
+"scenario","n_rep","ari_spec","ari_near","ari_far","spec_unrestricted","spec_strata8","spec_strata16","ari_raw","raw_unrestricted","raw_strata8","raw_strata16"
+"amplitude",1000,1,1,1,0.046,0.053,0.054,0.00685412045132327,0.573,0.086,0.069
+"type_z",1000,1,1,1,0.828,0.062,0.048,NA,NA,NA,NA
+"type_z_hot",500,1,1,1,0.992,0.512,0.49,NA,NA,NA,NA
+"type_z_x",500,1,1,1,1,0.992,0.994,NA,NA,NA,NA
+"snr_z",1000,0.776852801056441,0.983007860429457,0.594907136088259,0.182,0.05,0.051,NA,NA,NA,NA
