@@ -35,7 +35,11 @@ The example simulates 300 events with three curve types, one of which is
 concentrated in a hotspot, clusters the noisy curves, and runs the test:
 global $p$-value, type-specific $p$-values with Holm's adjustment, joint test
 over two clusterings and a test restricted to strata of a covariate. It runs in
-well under a minute.
+well under a minute and draws a four-panel figure (`examples/quick_example.pdf`):
+the true and the estimated types on the map, the standardised same-type
+statistics $Z_k(r)$ by radius for each type with the Holm-adjusted $p$-values,
+and the permutation distribution of the global statistic with its observed
+value.
 
 ### Using FCST on your own data
 
