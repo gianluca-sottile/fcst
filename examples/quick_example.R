@@ -2,7 +2,7 @@
 #  quick_example.R  --  a minimal use of FCST (runs in well under a minute)
 #
 #  Run from the folder examples/:   source("quick_example.R")
-#  Output: printed results and a figure (quick_example.pdf, also shown on
+#  Output: printed results and a figure (quick_example.pdf/.png, also shown on
 #  screen in an interactive session).
 ################################################################################
 
@@ -100,5 +100,8 @@ draw_quick_figure <- function() {
 pdf("quick_example.pdf", width = 7, height = 6.4)
 draw_quick_figure()
 dev.off()
+png("quick_example.png", width = 7, height = 6.4, units = "in", res = 150)  # shown in the README
+draw_quick_figure()
+dev.off()
 if (interactive()) draw_quick_figure()
-cat("\nfigure written to quick_example.pdf\n")
+cat("\nfigure written to quick_example.pdf and quick_example.png\n")

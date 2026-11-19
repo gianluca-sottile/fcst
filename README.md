@@ -41,6 +41,13 @@ statistics $Z_k(r)$ by radius for each type with the Holm-adjusted $p$-values,
 and the permutation distribution of the global statistic with its observed
 value.
 
+![Output of the quick example](examples/quick_example.png)
+
+In this example the clustering of the noisy curves is imperfect (adjusted Rand
+index 0.67), yet random labelling is rejected ($p = 0.007$) and the rejection
+is attributed to the type concentrated in the hotspot (Holm-adjusted
+$p = 0.003$), while the other two types are not concentrated ($p = 0.90$).
+
 ### Using FCST on your own data
 
 ```r
