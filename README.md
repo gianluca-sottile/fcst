@@ -3,7 +3,8 @@
 R code for the paper
 
 > G. Sottile, M. D'Antoni and G. Adelfio. *Testing the spatial concentration of
-> estimated shape types in functional marked point patterns.* Submitted.
+> estimated shape types in functional marked point patterns.* Submitted to
+> *Spatial Statistics*.
 
 The **functional clustering spatial test (FCST)** asks whether the shape of the
 curve carried by each event of a spatial point pattern (for instance, the
@@ -109,6 +110,7 @@ scripts use the following packages, all optional for the core:
 | `tclust` | trimmed k-means |
 | `clustEff` | FPCAC and shape-distance clustering (Section 6.5) |
 | `data.table`, `rhdf5` (Bioconductor), `signal` | reading and filtering the STEAD waveforms |
+| `GET` | global envelope test (`sim_09`) |
 | `maps` | state borders in the map of the data |
 
 `source("install_packages.R")` installs them.
@@ -135,19 +137,21 @@ on macOS and Linux). With the settings of the paper the simulations take from a
 few minutes (`sim_00`, `sim_07`) to several hours (`sim_01`, `sim_02`, `sim_05`,
 `sim_08`) on a desktop computer.
 
-| script | content | output in the paper |
-| --- | --- | --- |
-| `sim_00_check_moments.R` | closed-form permutation moments against Monte Carlo | Section S2 |
-| `sim_01_size.R` | size under random labelling (36 settings) | `tab_size`, `tab_size_full` |
-| `sim_02_power.R` | power, pair vs centroid statistic, attribution | `fig_power`, `tab_power_full_body` |
-| `sim_03_misclassification.R` | attenuation identity under misclassification | `tab_misclass` |
-| `sim_04b_confounding_scenarios.R` | spatially structured covariates, five scenarios | `tab_confounding_scenarios` |
-| `sim_05_competitors.R` | comparison with competing tests | `fig_competitors`, `tab_competitors_full` |
-| `sim_05b_segregation_cv.R` | segregation test with cross-validated bandwidth | `tab_segregation_cv` |
-| `sim_06_typings.R` | several clusterings and joint calibration | `tab_typings` |
-| `sim_07_normal_approx.R` | normal approximation of the permutation distribution | Section S4 |
-| `sim_08_robustness.R` | point process, hotspot profile and pair weights | `tab_robustness*`, `fig_design_robust` |
-| `make_design_figures.R` | illustrations of the design and of confounding | `fig_design_space`, `fig_design_curves`, `fig_confounding`, `fig_design_robust` |
+| script | content | output files | in the paper |
+| --- | --- | --- | --- |
+| `sim_00_check_moments.R` | closed-form permutation moments against Monte Carlo | -- | Section S2 |
+| `sim_01_size.R` | size under random labelling (36 settings) | `tab_size`, `tab_size_full` | Table 1, Table S8 |
+| `sim_02_power.R` | power, pair vs centroid statistic, attribution | `fig_power`, `tab_power_full_body` | Figure 2, Table S7 |
+| `sim_03_misclassification.R` | attenuation identity under misclassification | `tab_misclass` | Section 6.4, Table S1 |
+| `sim_04b_confounding_scenarios.R` | spatially structured covariates, five scenarios | `tab_confounding_scenarios` | Table 3 |
+| `sim_05_competitors.R` | comparison with competing tests | `fig_competitors`, `tab_competitors_full` | Figure 3, Table S9 |
+| `sim_05b_segregation_cv.R` | segregation test with cross-validated bandwidth | `tab_segregation_cv` | Table S3 |
+| `sim_06_typings.R` | several clusterings and joint calibration | `tab_typings` | Table 2 |
+| `sim_07_normal_approx.R` | normal approximation of the permutation distribution | -- | Section S4 |
+| `sim_08_robustness.R` | point process, hotspot profile and pair weights | `tab_robustness*`, `fig_design_robust` | Section S7 |
+| `sim_09_attribution.R` | attribution to types: FCST vs global envelope test (GET) and nearest-neighbour test | `tab_attribution` | Section 6.6, Table S5 |
+| `sim_10_semisynthetic.R` | real STEAD waveforms at simulated locations (needs `app_01`, `app_02`) | `tab_semisynthetic` | Section 6.2, Table S6 |
+| `make_design_figures.R` | illustrations of the design and of confounding | `fig_design_space`, `fig_design_curves`, `fig_confounding`, `fig_design_robust` | Figure 1, Figures S1–S3 |
 
 ### Application (Section 7)
 
@@ -167,15 +171,16 @@ The selection is: local earthquakes with epicentres in 45–47° N, 123–121° 
 short-period channels (`EH`) and duration magnitude (`MD`): 8038 traces of 3524
 events at 24 stations. Then:
 
-| script | content | output |
-| --- | --- | --- |
-| `app_01_prepare_stead.R` | one vertical trace per event, coordinates in km, covariates | `results/app_stead_station_counts.csv` |
-| `app_02_fcst_stead.R` | eight clusterings, joint, distance-and-magnitude and station-restricted tests (about 25 minutes) | `tab_app_tests`, `tab_app_types` |
-| `app_03_data_map.R` | map of the data | `fig_app_data` |
-| `app_04_competitors_stead.R` | competing tests on the same data (about 25 minutes) | `tab_app_competitors` |
-| `app_05_figures_stead.R` | maps and spectra of the types | `fig_app_map`, `fig_app_curves` |
+| script | content | output files | in the paper |
+| --- | --- | --- | --- |
+| `app_01_prepare_stead.R` | one vertical trace per event, coordinates in km, covariates | `results/app_stead_station_counts.csv` | Section 7.1 |
+| `app_02_fcst_stead.R` | eight clusterings, joint, distance-and-magnitude and station-restricted tests (about 25 minutes) | `tab_app_tests`, `tab_app_types` | Table 4, Table S12 |
+| `app_03_data_map.R` | map of the data | `fig_app_data` | Figure 4 |
+| `app_04_competitors_stead.R` | competing tests on the same data (about 25 minutes) | `tab_app_competitors` | Table 5 |
+| `app_05_figures_stead.R` | maps and spectra of the types | `fig_app_map`, `fig_app_curves` | Figures 5–6 |
+| `app_06_robustness_stead.R` | strata with time, single station, other window/representation/strata/radii, cross-correlation (needs the SeisBench extract) | `tab_app_robustness`, `tab_app_xcorr` | Section 7.3, Tables S13–S14 |
 
-`app_04` and `app_05` reuse the data prepared by `app_01`
+`app_04`, `app_05`, `app_06` and `sim_10` reuse the data prepared by `app_01`
 (`results/app_stead_data.rds`, not included because derived from STEAD) and the
 clusterings saved by `app_02` (`results/app_stead_labels.rds`, included), so
 they do not repeat the clustering.
@@ -184,7 +189,20 @@ they do not repeat the clustering.
 
 ## Citation
 
-If you use this code, please cite the paper (see `CITATION.cff`).
+If you use this code, please cite the paper (see `CITATION.cff`):
+
+```
+Sottile, G., D'Antoni, M., Adelfio, G. (2026). Testing the spatial concentration
+of estimated shape types in functional marked point patterns. Submitted to
+Spatial Statistics.
+```
+
+## Funding
+
+Targeted Research Funds 2025 (FFR 2026) of the University of Palermo; PRIN 2022
+project "Spatio-temporal Functional Marked Point Processes for probabilistic
+forecasting of earthquakes" (2022BN7CJP, P.I. Giada Adelfio, CUP
+B53C24006340006).
 
 ## License
 

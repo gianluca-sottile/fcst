@@ -86,7 +86,7 @@ draw_panel <- function(k, xlim, ylim, letter, main, cex_pt) {
 }
 full_x <- range(X[, 1]); full_y <- range(X[, 2])
 n_panels <- K1 + 1
-open_pdf(file.path("..", "paper", "figures", "fig_app_map.pdf"),
+open_pdf(file.path("..", "output", "figures", "fig_app_map.pdf"),
          height = ifelse(n_panels <= 4, 7.4, 10.5))
 set_panels(c(ceiling(n_panels / 2), 2), mar = c(3, 3.3, 1.5, 0.4), oma = c(1.8, 0, 0, 0))
 for (k in 1:K1) {
@@ -105,7 +105,7 @@ legend_bottom(legend = c(paste("type", 1:K1), "all events", "station", "volcano"
 dev.off()
 
 ## ---- 3. spectra and example waveforms --------------------------------------------------
-open_pdf(file.path("..", "paper", "figures", "fig_app_curves.pdf"), height = 2.9)
+open_pdf(file.path("..", "output", "figures", "fig_app_curves.pdf"), height = 2.9)
 set_panels(c(1, 2), mar = c(2.9, 3.3, 1.5, 0.5), oma = c(1.6, 0, 0, 0))
 spec_max <- max(sapply(1:K1, function(k) max(colMeans(Z[lab1 == k, , drop = FALSE]))))
 plot(NA, xlim = c(0.5, max(freq)), ylim = c(0, 1.05 * spec_max), log = "x", bty = "n",

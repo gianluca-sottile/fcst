@@ -51,7 +51,7 @@ draw_map <- function(xlim, ylim, letter, main, cex_pt) {
 
 # layout: the regional map on the left (two rows), the detail and the
 # magnitude-distance plot on the right
-open_pdf(file.path("..", "paper", "figures", "fig_app_data.pdf"), height = 5.6)
+open_pdf(file.path("..", "output", "figures", "fig_app_data.pdf"), height = 5.6)
 layout(matrix(c(1, 2, 1, 3), nrow = 2, byrow = TRUE), widths = c(1.15, 1))
 par(cex = 1, mar = c(3, 3.3, 1.5, 0.5), oma = c(2.4, 0, 0, 0), mgp = c(1.9, 0.45, 0),
     tcl = -0.25, cex.main = 1, font.main = 1, cex.axis = 0.85, las = 1)

@@ -453,3 +453,54 @@ if (file.exists(f2s)) {
   }
   write_lines(lines, file.path(dir_tab, "tab_power_full_body.tex"))
 }
+
+## ---- Attribution: FCST vs envelope vs nearest neighbour (sim_09) -------------------
+f9 <- file.path("results", "sim_09_attribution_summary.csv")
+if (file.exists(f9)) {
+  s9 <- read.csv(f9)
+  geom9 <- c(none = "none", one_bump = "one hotspot", two_bumps = "two hotspots",
+             band = "band")
+  lab9 <- c(oracle = "true", est_hard = "SNR 0.05")
+  s9 <- s9[order(match(s9$pattern, names(geom9)), s9$beta, match(s9$labels, names(lab9))), ]
+  lines <- c("\\begin{tabular}{@{}lrlrrrrrrr@{}}", "\\toprule",
+             " & & & & \\multicolumn{2}{c}{FCST} & \\multicolumn{2}{c}{Envelope} & \\multicolumn{2}{c}{Nearest neighbour} \\\\",
+             "\\cmidrule(lr){5-6}\\cmidrule(lr){7-8}\\cmidrule(lr){9-10}",
+             "Geometry & $\\beta$ & Labels & ARI & type 1 & other & type 1 & other & type 1 & other \\\\",
+             "\\midrule")
+  for (r in 1:nrow(s9)) {
+    if (s9$pattern[r] == "none") {
+      # under the null, report the FWER (any type) in the "other" column
+      vals <- unlist(s9[r, c("fcst_any", "env_any", "nn_any")])
+      cells <- paste("--", fmt(vals), sep = " & ")
+    } else {
+      cells <- c(paste(fmt(s9$fcst_type1[r]), fmt(s9$fcst_other[r]), sep = " & "),
+                 paste(fmt(s9$env_type1[r]), fmt(s9$env_other[r]), sep = " & "),
+                 paste(fmt(s9$nn_type1[r]), fmt(s9$nn_other[r]), sep = " & "))
+    }
+    lines <- c(lines, paste0(geom9[[s9$pattern[r]]], " & ", s9$beta[r], " & ",
+                             lab9[[s9$labels[r]]], " & ", fmt(s9$mean_ari[r], 2), " & ",
+                             paste(cells, collapse = " & "), " \\\\"))
+  }
+  lines <- c(lines, "\\bottomrule", "\\end{tabular}")
+  write_lines(lines, file.path(dir_tab, "tab_attribution.tex"))
+}
+
+## ---- Semi-synthetic experiment with STEAD waveforms (sim_10) ----------------------
+f10 <- file.path("results", "sim_10_semisynthetic_summary.csv")
+if (file.exists(f10)) {
+  s10 <- read.csv(f10)
+  geom10 <- c(none = "none", one_bump = "one hotspot", two_bumps = "two hotspots",
+              band = "band")
+  s10 <- s10[order(match(s10$pattern, names(geom10)), s10$beta), ]
+  lines <- c("\\begin{tabular}{@{}lrrrrrr@{}}", "\\toprule",
+             "Geometry & $\\beta$ & ARI & global ($K=3$) & joint ($K=2,\\dots,5$) & Holm 1 & Holm other \\\\",
+             "\\midrule")
+  for (r in 1:nrow(s10)) {
+    vals <- unlist(s10[r, c("power_K3", "power_joint", "holm_family1", "holm_other")])
+    lines <- c(lines, paste0(geom10[[s10$pattern[r]]], " & ", s10$beta[r], " & ",
+                             fmt(s10$mean_ari[r], 2), " & ",
+                             paste(fmt(vals), collapse = " & "), " \\\\"))
+  }
+  lines <- c(lines, "\\bottomrule", "\\end{tabular}")
+  write_lines(lines, file.path(dir_tab, "tab_semisynthetic.tex"))
+}

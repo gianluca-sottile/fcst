@@ -99,5 +99,5 @@ for (t in tests) {
                            " \\\\"))
 }
 lines <- c(lines, "\\bottomrule", "\\end{tabular}")
-writeLines(lines, file.path("..", "paper", "tables", "tab_app_competitors.tex"))
+writeLines(lines, file.path("..", "output", "tables", "tab_app_competitors.tex"))
 cat("written ../output/tables/tab_app_competitors.tex\n")

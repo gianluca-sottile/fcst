@@ -5,16 +5,19 @@ authors:
   - family-names: Sottile
     given-names: Gianluca
     affiliation: "University of Palermo"
+    orcid: "https://orcid.org/0000-0001-9347-7251"
   - family-names: D'Antoni
     given-names: Marco
     affiliation: "University of Palermo"
   - family-names: Adelfio
     given-names: Giada
     affiliation: "University of Palermo"
+    orcid: "https://orcid.org/0000-0002-3194-4296"
 license: MIT
 repository-code: "https://github.com/gianluca-sottile/fcst"
 url: "https://github.com/gianluca-sottile/fcst"
-version: "1.0"
+version: "1.1"
+date-released: "2026-11-20"
 preferred-citation:
   type: article
   title: "Testing the spatial concentration of estimated shape types in functional marked point patterns"
@@ -26,4 +29,5 @@ preferred-citation:
     - family-names: Adelfio
       given-names: Giada
   year: 2026
+  journal: "Spatial Statistics"
   notes: "Submitted"

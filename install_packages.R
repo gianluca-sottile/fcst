@@ -1,5 +1,5 @@
 ## Installs the packages used by the scripts (the core of FCST uses base R only).
-cran <- c("mclust", "cluster", "tclust", "clustEff", "data.table", "signal", "maps")
+cran <- c("mclust", "cluster", "tclust", "clustEff", "data.table", "signal", "maps", "GET")
 missing <- cran[!vapply(cran, requireNamespace, logical(1), quietly = TRUE)]
 if (length(missing) > 0) install.packages(missing)
 # rhdf5 (Bioconductor) is needed only to read the STEAD waveforms
