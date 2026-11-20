@@ -199,7 +199,7 @@ Spatial Statistics.
 
 ## Funding
 
-Targeted Research Funds 2025 (FFR 2026) of the University of Palermo; PRIN 2022
+Targeted Research Funds 2026 (FFR 2026) of the University of Palermo; PRIN 2022
 project "Spatio-temporal Functional Marked Point Processes for probabilistic
 forecasting of earthquakes" (2022BN7CJP, P.I. Giada Adelfio, CUP
 B53C24006340006).
